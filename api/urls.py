@@ -1,6 +1,9 @@
 from django.urls import path
-from . import views
+from .views import RegisterView, LoginView, UserDataView, AdminDashboardStatsView
 
 urlpatterns = [
-    path('chat/', views.chat_assistant, name='chat_assistant'),
+    path('auth/register/', RegisterView.as_view(), name='register'),
+    path('auth/login/', LoginView.as_view(), name='login'),
+    path('auth/user/', UserDataView.as_view(), name='user_data'),
+    path('admin-stats/', AdminDashboardStatsView.as_view(), name='admin_stats'),
 ]
